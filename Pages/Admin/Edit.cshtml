@@ -1,0 +1,50 @@
+@page "{id:int}"
+@model PersonalWebSite.Pages.Admin.EditModel
+@{
+    ViewData["Title"] = "Edit Message";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card bg-dark border border-secondary shadow-lg text-light">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fa-solid fa-pen"></i> Edit Message</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                        <input type="hidden" asp-for="ContactMessage.Id" />
+                        
+                        <div class="mb-3">
+                            <label asp-for="ContactMessage.Name" class="form-label text-muted">Name</label>
+                            <input asp-for="ContactMessage.Name" class="form-control bg-dark text-light border-secondary" />
+                            <span asp-validation-for="ContactMessage.Name" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="ContactMessage.Email" class="form-label text-muted">Email</label>
+                            <input asp-for="ContactMessage.Email" class="form-control bg-dark text-light border-secondary" />
+                            <span asp-validation-for="ContactMessage.Email" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="ContactMessage.Message" class="form-label text-muted">Message</label>
+                            <textarea asp-for="ContactMessage.Message" class="form-control bg-dark text-light border-secondary" style="height: 150px"></textarea>
+                            <span asp-validation-for="ContactMessage.Message" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <a asp-page="./Index" class="btn btn-outline-light">Cancel</a>
+                            <button type="submit" class="btn btn-success"><i class="fa-solid fa-save"></i> Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
