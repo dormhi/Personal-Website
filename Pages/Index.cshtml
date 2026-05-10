@@ -1,0 +1,43 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="scrolling-text-container bg-dark border border-secondary mb-4">
+    <div class="scrolling-text text-light">
+        <span><i class="fa-solid fa-bullhorn"></i> Welcome! This is my personal website developed with .NET 10, SQLite, and Bootstrap 5! Enjoy the CSS & JS animations.</span>
+    </div>
+</div>
+
+<div class="hero-section text-center mb-5 border border-secondary">
+    <div class="hero-overlay"></div>
+    <div class="hero-content px-4 py-5">
+        <img class="d-block mx-auto mb-4 rounded-circle shadow-lg profile-anim" src="/images/dormhi_profil.png" alt="Dormhi Profile Picture" width="150" height="150" style="object-fit: cover;">
+        
+        <h1 class="display-5 fw-bold text-anim text-white">Hi, I'm Davut Can Cüci</h1>
+        <h3 class="text-anim text-white" style="font-weight: 300;">(People generally know me as "Dormhi")</h3>
+        
+        <div class="col-lg-8 mx-auto mt-4">
+            <p class="lead mb-4 text-anim-2 text-white">I have been striving to be the best in the fields of computers and software that I have been interested in since my childhood. 👋</p>
+            
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center buttons-anim">
+                <a asp-page="/About" class="btn btn-primary btn-lg px-4 gap-3 btn-animated"><i class="fa-solid fa-user"></i> More About Me</a>
+                <a asp-page="/Contact" class="btn btn-outline-light btn-lg px-4 btn-animated"><i class="fa-solid fa-envelope"></i> Get In Touch</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6 offset-md-3 text-center">
+        <h3>Featured Work (Video)</h3>
+        <div class="ratio ratio-16x9 shadow rounded overflow-hidden border border-secondary">
+            <!-- W3Schools requirement: Add video element -->
+            <video controls autoplay muted loop>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>

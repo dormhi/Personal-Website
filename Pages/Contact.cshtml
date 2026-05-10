@@ -1,0 +1,60 @@
+@page
+@model PersonalWebSite.Pages.ContactModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="row justify-content-center my-5">
+    <div class="col-md-8">
+        <div class="card bg-dark border border-secondary shadow-lg rounded-lg text-light">
+            <div class="card-header bg-primary text-white text-center py-4 border-bottom border-secondary">
+                <h3 class="font-weight-light my-2">Get In Touch</h3>
+            </div>
+            <div class="card-body p-5">
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Great!</strong> @TempData["SuccessMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <!-- onsubmit: Call JS Validation -->
+                <form method="post" onsubmit="return validateContactForm()">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    
+                    <div class="form-floating mb-3">
+                        <input asp-for="ContactMessage.Name" class="form-control bg-dark text-light border-secondary" id="Name" placeholder="Full Name" />
+                        <label asp-for="ContactMessage.Name" class="text-muted">Full Name</label>
+                        <span asp-validation-for="ContactMessage.Name" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-floating mb-3">
+                        <input asp-for="ContactMessage.Email" class="form-control bg-dark text-light border-secondary" id="Email" placeholder="name@example.com" />
+                        <label asp-for="ContactMessage.Email" class="text-muted">Email Address</label>
+                        <span asp-validation-for="ContactMessage.Email" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-floating mb-3">
+                        <textarea asp-for="ContactMessage.Message" class="form-control bg-dark text-light border-secondary" id="Message" placeholder="Your Message" style="height: 150px"></textarea>
+                        <label asp-for="ContactMessage.Message" class="text-muted">Your Message</label>
+                        <span asp-validation-for="ContactMessage.Message" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                        <button type="submit" class="btn btn-primary btn-animated px-4 py-2 w-100">
+                            <i class="fa-solid fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center py-3 border-top border-secondary">
+                <div class="small"><a asp-page="/Index" class="text-info">Return to Home</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
